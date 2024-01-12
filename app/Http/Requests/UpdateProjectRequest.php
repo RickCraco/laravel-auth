@@ -23,9 +23,9 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3', 'max:200', Rule::unique('posts')->ignore($this->post)],
+            'title' => ['required', 'min:3', 'max:200', Rule::unique('projects')->ignore($this->project)],
             'body' => ['nullable'],
-            'image' => ['nullable', 'url']
+            'img' => ['nullable', 'url']
         ];
     }
 
@@ -36,7 +36,7 @@ class UpdateProjectRequest extends FormRequest
             'title.min' => 'Il titolo deve avere almeno :min caratteri',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
             'title.unique' => 'Questo titolo esiste già',
-            'image.url' => 'L\'immagine deve essere di tipo url'
+            'img.url' => 'L\'immagine deve essere di tipo url'
         ];
     }
 }
