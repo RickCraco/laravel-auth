@@ -5,6 +5,10 @@
 
         <a href="{{ route('admin.projects.create') }}" class="btn btn-danger mb-4">Add Project</a>
 
+        @if(session()->has('message'))
+            <div class="alert alert-success mt-4">{{ session()->get('message') }}</div>
+        @endif
+
         <ul class="list-group">
             @foreach($projects as $project)
                 <li class="list-group-item d-flex align-items-center justify-content-between bg-dark text-white">
