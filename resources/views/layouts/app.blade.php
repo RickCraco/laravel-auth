@@ -39,6 +39,13 @@
                         </li>
                     </ul>
 
+                    @auth
+                        <form action="">
+                            @csrf
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Cerca">
+                        </form>
+                    @endauth
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
