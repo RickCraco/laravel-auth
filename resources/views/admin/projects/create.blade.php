@@ -4,7 +4,7 @@
         <h1>Project Create</h1>
         <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
-     <div class="mb-3">
+     <div class="mb-3 text-white">
             <label for="title">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
                 required minlength="3" maxlength="200" value="{{ old('title') }}">
@@ -13,7 +13,7 @@
             @enderror
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 text-white">
         <label for="body">Body</label>
         <textarea class="form-control @error('body') is-invalid @enderror" name="body" id="body" cols="30" rows="10">
         {{ old('body') }}
@@ -22,7 +22,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
-    <div class="mb-3">
+    <div class="mb-3 text-white">
                 <label for="image">Image</label>
                 <input type="url" class="form-control @error('image') is-invalid @enderror" name="image" id="image" value="{{old('image')}}">
                 @error('image')
