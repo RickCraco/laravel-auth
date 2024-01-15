@@ -75,6 +75,9 @@ class ProjectController extends Controller
         $formData['user_id'] = $project->user_id;
         
         if($request->hasFile('img')){
+            if($project->img){
+                Storage::delete($project->img);
+            }
             $path = Storage::put('uploads', $request->file('img'));
             $formData['img'] = $path;
         }
