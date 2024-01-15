@@ -74,6 +74,11 @@ class ProjectController extends Controller
         $formData['slug'] = $slug;
         $formData['user_id'] = $project->user_id;
         
+        if($request->hasFile('img')){
+            $path = Storage::put('uploads', $request->file('img'));
+            $formData['img'] = $path;
+        }
+
         $project->update($formData);
         return to_route('admin.projects.show', $project);
     }
@@ -83,6 +88,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->img){
+            Storage::delete($project->img);
+        }
+
         $project->delete();
         return to_route('admin.projects.index')->with('message', "Project $project->title deleted");
     }
