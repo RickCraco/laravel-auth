@@ -3,6 +3,8 @@
     <section class="container">
         <h1 class="my-4 text-danger">Projects List</h1>
 
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-danger mb-4">Add Project</a>
+
         <ul class="list-group">
             @foreach($projects as $project)
                 <li class="list-group-item d-flex align-items-center justify-content-between bg-dark text-white">
